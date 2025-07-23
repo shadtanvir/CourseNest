@@ -36,7 +36,7 @@ const Navbar = () => {
       <li className="ml-4 mb-4 md:mb-0 flex items-center">
         {!user ? (
           <NavLink
-            to="/auth/register"
+            to="/auth/login"
             className="btn btn-sm btn-primary font-poppins text-lg text-white"
           >
             Login
@@ -224,10 +224,9 @@ const Navbar = () => {
       </div>
 
       <div className="navbar-end">
-         <ul className="menu menu-horizontal md:items-center px-1 font-poppins text-lg  hidden md:flex">
+        <ul className="menu menu-horizontal md:items-center px-1 font-poppins text-lg  hidden md:flex">
           {navEnd}
         </ul>
-        
       </div>
     </div>
   );
