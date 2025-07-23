@@ -1,16 +1,18 @@
 import { createBrowserRouter } from "react-router";
 import MainLayout from "../Layouts/MainLayout";
 import Home from "../Pages/Home";
+import AuthLayout from "../Layouts/AuthLayout";
+import Register from "../Pages/Register";
 
 const mainRoutes = createBrowserRouter([
   {
     path: "/",
-    element: <MainLayout></MainLayout> ,
-    errorElement: <h1></h1> ,
+    element: <MainLayout></MainLayout>,
+    errorElement: <h1></h1>,
     children: [
       {
-        index:true,
-        element: <Home></Home> ,
+        index: true,
+        element: <Home></Home>,
       },
       {
         path: "login",
@@ -18,9 +20,19 @@ const mainRoutes = createBrowserRouter([
       },
       {
         path: "registration",
-        element: <h1></h1> ,
+        element: <h1></h1>,
       },
       {},
+    ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout></AuthLayout>,
+    children: [
+      {
+        path: "/auth/register",
+        element: <Register></Register>,
+      },
     ],
   },
 ]);
