@@ -3,12 +3,12 @@ import { Link } from "react-router";
 import { motion } from "framer-motion";
 import axios from "axios";
 
-const CoursesSection = () => {
+const PopularCourses = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses/latest")
+      .get("http://localhost:5000/courses/top-enrolled")
       .then((res) => {
         setCourses(res.data);
       })
@@ -16,12 +16,11 @@ const CoursesSection = () => {
         console.error("Failed to load courses", err);
       });
   }, []);
-
   return (
     <section className="py-16 bg-base-100 font-poppins">
       <div className="max-w-7xl mx-auto px-4">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-10 text-primary">
-          Latest Courses
+          Popular Courses
         </h2>
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -46,7 +45,7 @@ const CoursesSection = () => {
                   {course.title}
                 </h3>
                 <p className="text-sm text-gray-500">
-                  Added on: {new Date(course.addedAt).toLocaleDateString()}
+                  Total enrolled: {course.totalEnrolled}
                 </p>
 
                 {/* Optional: show price, instructor, or seats */}
@@ -78,4 +77,4 @@ const CoursesSection = () => {
   );
 };
 
-export default CoursesSection;
+export default PopularCourses;
