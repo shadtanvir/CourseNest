@@ -62,7 +62,7 @@ const Navbar = () => {
           <div className="relative flex items-center">
             <button
               onClick={handleLogout}
-              className="w-full font-poppins flex items-center ml-4 text-left px-3 py-2 rounded bg-amber-50 text-red-700"
+              className="btn btn-sm btn-primary font-poppins text-lg text-white"
             >
               Logout
             </button>
