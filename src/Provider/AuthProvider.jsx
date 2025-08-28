@@ -10,12 +10,16 @@ import {
   sendPasswordResetEmail,
 } from "firebase/auth";
 import app from "../firebase/firebase.config";
-import { GoogleAuthProvider, GithubAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider } from "firebase/auth";
 
 export const AuthContext = createContext();
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
-const githubProvider = new GithubAuthProvider();
+googleProvider.addScope("email");
+
+const githubprovider = new GithubAuthProvider();
+githubprovider.addScope("user:email");
 
 const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
@@ -49,13 +53,15 @@ const AuthProvider = ({ children }) => {
     setLoading(true);
     return signInWithPopup(auth, googleProvider);
   };
+
   const githubSignIn = () => {
     setLoading(true);
-    return signInWithPopup(auth, githubProvider);
+    return signInWithPopup(auth, githubprovider);
   };
   const updateUser = (updatedData) => {
     return updateProfile(auth.currentUser, updatedData);
   };
+
   const authData = {
     user,
     setUser,
@@ -66,8 +72,8 @@ const AuthProvider = ({ children }) => {
     setLoading,
     updateUser,
     googleSignIn,
-    githubSignIn,
     forgetPassword,
+    githubSignIn,
   };
   return <AuthContext value={authData}>{children}</AuthContext>;
 };

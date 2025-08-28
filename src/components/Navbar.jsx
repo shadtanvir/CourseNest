@@ -42,12 +42,14 @@ const Navbar = () => {
             Login
           </NavLink>
         ) : (
-          <img
-            src={user.photoURL}
-            alt="User"
-            className="w-9 h-9 rounded-full cursor-pointer border-2 border-success"
-            title={user.displayName}
-          />
+          <div className="p-0 border-2 bg-success rounded-full  border-success">
+            <img
+              src={user.photoURL}
+              alt="User"
+              className="w-9 h-9 rounded-full cursor-pointer "
+              title={user.displayName}
+            />
+          </div>
         )}
       </li>
       <li className="ml-4 mb-4 md:mb-0 flex items-center">

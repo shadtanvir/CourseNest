@@ -4,6 +4,7 @@ import Home from "../Pages/Home";
 import AuthLayout from "../Layouts/AuthLayout";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
+import CourseDetails from "../Pages/CourseDetails";
 
 const mainRoutes = createBrowserRouter([
   {
@@ -16,13 +17,10 @@ const mainRoutes = createBrowserRouter([
         element: <Home></Home>,
       },
       {
-        path: "login",
-        element: <h1></h1>,
+        path: "/courses/:id",
+        element: <CourseDetails></CourseDetails>,
       },
-      {
-        path: "registration",
-        element: <h1></h1>,
-      },
+     
       {},
     ],
   },
