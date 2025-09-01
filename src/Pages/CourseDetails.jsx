@@ -14,7 +14,7 @@ const CourseDetails = () => {
   const [course, setCourse] = useState(null);
   const [isEnrolled, setIsEnrolled] = useState(false);
   // const token = user.getIdToken();
-  console.log(user);
+  // console.log(user);
   // console.log("accessToken", user?.accessToken);
   // console.log(user);
 
@@ -24,7 +24,7 @@ const CourseDetails = () => {
       setCourse(courseRes.data);
 
       if (user) {
-        console.log(id);
+        // console.log(id);
         const enrollRes = await axios.get(
           `http://localhost:5000/courses/enrollment/${id}?email=${user.email}`,
           {
@@ -50,7 +50,7 @@ const CourseDetails = () => {
           email: user.email,
         }
       );
-      console.log(res.data);
+      // console.log(res.data);
 
       if (res.data.success) {
         setIsEnrolled(true);
@@ -89,7 +89,7 @@ const CourseDetails = () => {
 
         <div className="text-center grid grid-cols-2 gap-4">
           <p>
-            <strong>Duration:</strong> {course.duration}
+            <strong>Duration (in weeks):</strong> {course.duration}
           </p>
           <p>
             <strong>Price:</strong> ${course.price}

@@ -5,6 +5,8 @@ import AuthLayout from "../Layouts/AuthLayout";
 import Register from "../Pages/Register";
 import Login from "../Pages/Login";
 import CourseDetails from "../Pages/CourseDetails";
+import PrivateRoute from "./PrivateRoute";
+import AddCourse from "../Pages/AddCourse";
 
 const mainRoutes = createBrowserRouter([
   {
@@ -20,8 +22,15 @@ const mainRoutes = createBrowserRouter([
         path: "/courses/:id",
         element: <CourseDetails></CourseDetails>,
       },
-     
-      {},
+
+      {
+        path: "/add-course",
+        element: (
+          <PrivateRoute>
+            <AddCourse></AddCourse>
+          </PrivateRoute>
+        ),
+      },
     ],
   },
   {
