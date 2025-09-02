@@ -35,7 +35,7 @@ const ManageCourses = () => {
         Swal.fire("Deleted!", "Your course has been deleted.", "success");
       }
     } catch (err) {
-      console.error("Delete failed:", err);
+      Swal.fire("Error!", "Failed to update course.", "error");
     }
   };
 

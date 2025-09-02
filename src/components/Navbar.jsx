@@ -118,21 +118,33 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
-      <li className="flex items-center">
-        <NavLink
-          to="/courses"
-          className={({ isActive }) =>
-            isActive
-              ? "rounded-none font-bold text-primary"
-              : "hover:text-primary-content"
-          }
-        >
-          Courses
-        </NavLink>
-      </li>
 
       {user && (
         <>
+          <li className="flex items-center">
+            <NavLink
+              to="/courses-by-you"
+              className={({ isActive }) =>
+                isActive
+                  ? "rounded-none font-bold text-primary"
+                  : "hover:text-primary-content"
+              }
+            >
+              Manage Courses
+            </NavLink>
+          </li>
+          <li className="flex items-center">
+            <NavLink
+              to="/enrolled/&{user.email}"
+              className={({ isActive }) =>
+                isActive
+                  ? "rounded-none font-bold text-primary"
+                  : "hover:text-primary-content"
+              }
+            >
+              Enrolled Courses
+            </NavLink>
+          </li>
           <li className="flex items-center">
             <NavLink
               to="/add-course"

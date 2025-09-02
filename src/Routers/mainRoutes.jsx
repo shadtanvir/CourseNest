@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import AddCourse from "../Pages/AddCourse";
 import ManageCourses from "../Pages/ManageCourses";
 import EditCourse from "../Pages/EditCourse";
+import MyEnrolledCourses from "../Pages/MyEnrolledCourses";
 
 const mainRoutes = createBrowserRouter([
   {
@@ -26,7 +27,7 @@ const mainRoutes = createBrowserRouter([
       },
 
       {
-        path: "/courses",
+        path: "/courses-by-you",
         element: (
           <PrivateRoute>
             <ManageCourses></ManageCourses>
@@ -34,10 +35,18 @@ const mainRoutes = createBrowserRouter([
         ),
       },
       {
+        path: "/enrolled/:email",
+        element: (
+          <PrivateRoute>
+            <MyEnrolledCourses></MyEnrolledCourses>
+          </PrivateRoute>
+        ),
+      },
+      {
         path: "/edit-course/:id",
         element: (
           <PrivateRoute>
-          <EditCourse></EditCourse>
+            <EditCourse></EditCourse>
           </PrivateRoute>
         ),
       },
