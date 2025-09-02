@@ -68,11 +68,11 @@ const ManageCourses = () => {
                 <td className="py-2 px-4 font-semibold text-primary">
                   {course.title}
                 </td>
-                <td className="py-2 px-4 italic text-neutral">
+                <td className="py-2 px-4 italic text-base-300">
                   {course.shortDescription}
                 </td>
                 <td className="flex gap-2 py-2 px-4">
-                  <Link to={`/update-course/${course._id}`}>
+                  <Link to={`/edit-course/${course._id}`}>
                     <button className="btn btn-sm btn-warning flex items-center gap-1">
                       <FaEdit /> Edit
                     </button>
