@@ -6,6 +6,7 @@ import axios from "axios";
 import { toast } from "react-toastify";
 import Loading from "../components/Loading";
 import UseAxiosSecure from "../hooks/UseAxiosSecure";
+import useTitle from "../hooks/UseTitle";
 
 const CourseDetails = () => {
   // const axiosSecure = UseAxiosSecure();
@@ -13,6 +14,8 @@ const CourseDetails = () => {
   const { user } = useContext(AuthContext);
   const [course, setCourse] = useState(null);
   const [isEnrolled, setIsEnrolled] = useState(false);
+
+  useTitle("Course Details");
   // const token = user.getIdToken();
   // console.log(user);
   // console.log("accessToken", user?.accessToken);
@@ -68,7 +71,6 @@ const CourseDetails = () => {
   if (!course) {
     return <Loading></Loading>;
   }
-
   return (
     <motion.div
       initial={{ opacity: 0 }}

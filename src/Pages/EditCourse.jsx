@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Loading from "../components/Loading";
 import axios from "axios";
 import UseAxiosSecure from "../hooks/UseAxiosSecure";
+import useTitle from "../hooks/UseTitle";
 
 const EditCourse = () => {
   const { id } = useParams();
@@ -12,6 +13,7 @@ const EditCourse = () => {
   const [course, setcourse] = useState(null);
   const navigate = useNavigate();
   const axiosSecure = UseAxiosSecure();
+  useTitle("Edit Course");
 
   useEffect(() => {
     axios

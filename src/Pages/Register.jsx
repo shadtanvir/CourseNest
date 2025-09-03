@@ -3,11 +3,13 @@ import { Link, useLocation, useNavigate } from "react-router";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { toast } from "react-toastify";
+import useTitle from "../hooks/UseTitle";
 
 const Register = () => {
   const { createUser, setUser, updateUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
+  useTitle("Register");
   // console.log(location);
 
   const validatePassword = (password, confirmPassword, email) => {

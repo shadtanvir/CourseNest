@@ -4,9 +4,11 @@ import { AuthContext } from "../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import { div } from "framer-motion/client";
 import axios from "axios";
+import useTitle from "../hooks/UseTitle";
 
 const AddCourse = () => {
   const { user } = useContext(AuthContext);
+  useTitle("Add Course");
 
   const {
     register,

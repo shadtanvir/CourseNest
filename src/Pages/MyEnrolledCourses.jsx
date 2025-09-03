@@ -2,11 +2,13 @@ import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import UseAxiosSecure from "../hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
+import useTitle from "../hooks/UseTitle";
 
 const MyEnrolledCourses = () => {
   const { user, loading } = useContext(AuthContext);
   const axiosSecure = UseAxiosSecure();
   const [courses, setCourses] = useState([]);
+  useTitle("Enrolled Courses");
 
   useEffect(() => {
     if (!loading && user?.email) {

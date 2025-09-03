@@ -4,6 +4,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
 import { IoMdEyeOff } from "react-icons/io";
 import { IoEyeOutline } from "react-icons/io5";
+import useTitle from "../hooks/UseTitle";
 
 // import { sendPasswordResetEmail } from "firebase/auth";
 
@@ -12,6 +13,7 @@ const Login = () => {
   const location = useLocation();
   const emailRef = useRef();
   const [showPassword, setShowPassword] = useState(false);
+  useTitle("Login")
   // console.log(location);
   const { signIn, googleSignIn, githubSignIn } = use(AuthContext);
 

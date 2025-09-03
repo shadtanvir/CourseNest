@@ -5,8 +5,10 @@ import CoursesSection from "../components/CoursesSection";
 import PopularCourses from "../components/PopularCourses";
 import Testimonials from "../components/Testimonials";
 import WhyChooseUs from "../components/WhyChooseUs";
+import useTitle from "../hooks/UseTitle";
 
 const Home = () => {
+  useTitle("Home");
   return (
     <div>
       <Banner></Banner>

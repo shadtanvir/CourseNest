@@ -4,12 +4,14 @@ import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
 import UseAxiosSecure from "../hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
+import useTitle from "../hooks/UseTitle";
 
 const ManageCourses = () => {
   const { user, loading } = useContext(AuthContext);
   const [courses, setCourses] = useState([]);
   const [selectedCourse, setSelectedCourse] = useState(null); // course to delete
   const axiosSecure = UseAxiosSecure();
+  useTitle("Manage Courses");
 
   useEffect(() => {
     if (!loading && user?.email) {
