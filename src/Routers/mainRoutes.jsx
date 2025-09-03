@@ -10,12 +10,13 @@ import AddCourse from "../Pages/AddCourse";
 import ManageCourses from "../Pages/ManageCourses";
 import EditCourse from "../Pages/EditCourse";
 import MyEnrolledCourses from "../Pages/MyEnrolledCourses";
+import ErrorPage from "../Pages/ErrorPage";
 
 const mainRoutes = createBrowserRouter([
   {
     path: "/",
     element: <MainLayout></MainLayout>,
-    errorElement: <h1></h1>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,
@@ -63,6 +64,7 @@ const mainRoutes = createBrowserRouter([
   {
     path: "/auth",
     element: <AuthLayout></AuthLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/auth/register",

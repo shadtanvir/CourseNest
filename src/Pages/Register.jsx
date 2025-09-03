@@ -140,7 +140,7 @@ const Register = () => {
 
             <button
               type="submit"
-              className="btn bg-primary text-white font-merriWeather mt-4"
+              className="btn bg-primary text-white font-poppins mt-4"
             >
               Register
             </button>

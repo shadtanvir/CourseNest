@@ -85,9 +85,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex  justify-center items-center min-h-screen font-lora">
+    <div className="flex  justify-center items-center min-h-screen font-inter">
       <div className="card bg-base-200 w-full max-w-sm shrink-0 shadow-2xl py-5">
-        <h2 className="font-semibold text-2xl text-primary  text-center font-merriWeather">
+        <h2 className="font-semibold text-2xl text-primary  text-center font-poppins">
           Login your account
         </h2>
         <form onSubmit={handleLogin} className="card-body">
@@ -135,7 +135,7 @@ const Login = () => {
 
             <button
               type="submit"
-              className="btn bg-primary text-white font-merriWeather mt-4"
+              className="btn bg-primary text-white font-poppins mt-4"
             >
               Login
             </button>
