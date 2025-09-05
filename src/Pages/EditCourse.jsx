@@ -6,6 +6,7 @@ import Loading from "../components/Loading";
 import axios from "axios";
 import UseAxiosSecure from "../hooks/UseAxiosSecure";
 import useTitle from "../hooks/UseTitle";
+import { toast } from "react-toastify";
 
 const EditCourse = () => {
   const { id } = useParams();
@@ -39,12 +40,12 @@ const EditCourse = () => {
 
       .then((res) => {
         if (res.data.modifiedCount > 0) {
-          Swal.fire("Success!", "course updated successfully.", "success");
+          toast.success("course updated successfully.");
           //   navigate("/my-courses");
         }
       })
       .catch((error) => {
-        Swal.fire("Error!", "Failed to update course.", error);
+        toast.error("Failed to update course.");
       });
   };
 

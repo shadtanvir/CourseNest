@@ -118,6 +118,18 @@ const Navbar = () => {
           Home
         </NavLink>
       </li>
+      <li className="flex items-center">
+        <NavLink
+          to="/courses"
+          className={({ isActive }) =>
+            isActive
+              ? "rounded-none font-bold text-primary"
+              : "hover:text-primary-content"
+          }
+        >
+          Courses
+        </NavLink>
+      </li>
 
       {user && (
         <>

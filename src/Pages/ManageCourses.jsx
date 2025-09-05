@@ -5,6 +5,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import UseAxiosSecure from "../hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import useTitle from "../hooks/UseTitle";
+import { toast } from "react-toastify";
 
 const ManageCourses = () => {
   const { user, loading } = useContext(AuthContext);
@@ -34,10 +35,10 @@ const ManageCourses = () => {
           prev.filter((course) => course._id !== selectedCourse._id)
         );
         setSelectedCourse(null); // close modal
-        Swal.fire("Deleted!", "Your course has been deleted.", "success");
+        toast.success("Your course has been deleted.");
       }
     } catch (err) {
-      Swal.fire("Error!", "Failed to update course.", "error");
+      toast.error("Failed to update course.");
     }
   };
 

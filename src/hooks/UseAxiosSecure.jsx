@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { use } from "react";
 import { AuthContext } from "../Provider/AuthProvider";
 import Swal from "sweetalert2";
+import { toast } from "react-toastify";
 
 const axiosInstance = axios.create({
   baseURL: "http://localhost:5000",
@@ -25,18 +26,10 @@ const UseAxiosSecure = () => {
           .catch((error) => {
             // alert(error);
           });
-        Swal.fire({
-          icon: "error",
-          title: "401",
-          text: "Unauthorized Access!",
-        });
+        toast.error("Unauthorized Access!");
       }
       if (error.status === 403) {
-        Swal.fire({
-          icon: "error",
-          title: "403",
-          text: "Forbidden Access!",
-        });
+        toast.error("Forbidden Access!");
       }
     }
   );

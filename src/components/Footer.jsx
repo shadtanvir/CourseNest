@@ -25,18 +25,18 @@ const Footer = () => {
           </h3>
           <ul className="space-y-2 text-sm">
             <li>
-              <Link to="/" className="hover:text-accent transition">
+              <Link to="/" className="hover:text-primary transition">
                 Home
               </Link>
             </li>
             <li>
-              <Link to="/courses" className="hover:text-accent transition">
+              <Link to="/courses" className="hover:text-primary transition">
                 Courses
               </Link>
             </li>
             <li>
-              <Link to="/add-course" className="hover:text-accent transition">
-                Add Course
+              <Link to="/faq" className="hover:text-primary transition">
+                FAQ
               </Link>
             </li>
           </ul>
@@ -52,7 +52,7 @@ const Footer = () => {
               href="https://www.facebook.com/tahmedshad/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl text-primary hover:text-accent transition"
+              className="text-xl hover:text-primary transition"
             >
               <FaFacebookF />
             </a>
@@ -60,7 +60,7 @@ const Footer = () => {
               href="https://twitter.com/tanvir70469110"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl text-primary hover:text-accent transition"
+              className="text-xl hover:text-primary transition"
             >
               <FaTwitter />
             </a>
@@ -68,7 +68,7 @@ const Footer = () => {
               href="https://www.linkedin.com/in/tanvirshad/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl text-primary hover:text-accent transition"
+              className="text-xl  hover:text-primary transition"
             >
               <FaLinkedinIn />
             </a>
@@ -76,7 +76,7 @@ const Footer = () => {
               href="https://github.com/shadtanvir"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-xl text-primary hover:text-accent transition"
+              className="text-xl hover:text-primary transition"
             >
               <FaGithub />
             </a>

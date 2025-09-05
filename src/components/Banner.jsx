@@ -1,6 +1,7 @@
 import React from "react";
 import Slider from "react-slick";
 import { motion } from "framer-motion";
+import { Typewriter } from "react-simple-typewriter";
 
 const bannerSlides = [
   {
@@ -28,8 +29,8 @@ const Banner = () => {
     dots: true,
     infinite: true,
     autoplay: true,
-    speed: 2000,
-    autoplaySpeed: 3000,
+    speed: 5000,
+    autoplaySpeed: 5000,
     slidesToShow: 1,
     slidesToScroll: 1,
     arrows: false,
@@ -58,7 +59,15 @@ const Banner = () => {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 viewport={{ once: false }}
               >
-                {slide.title}
+                <Typewriter
+                  words={[slide.title]}
+                  loop={false}
+                  cursor
+                  cursorStyle={<span style={{ color: "#4338ca" }}>|</span>}
+                  typeSpeed={100}
+                  deleteSpeed={80}
+                  delaySpeed={500}
+                />
               </motion.h1>
               <motion.p
                 className="text-lg md:text-xl font-inter"

@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { motion } from "framer-motion";
 import axios from "axios";
 
-const CoursesSection = () => {
+const LatestCourse = () => {
   const [courses, setCourses] = useState([]);
 
   useEffect(() => {
@@ -78,4 +78,4 @@ const CoursesSection = () => {
   );
 };
 
-export default CoursesSection;
+export default LatestCourse;

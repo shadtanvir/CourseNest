@@ -11,6 +11,8 @@ import ManageCourses from "../Pages/ManageCourses";
 import EditCourse from "../Pages/EditCourse";
 import MyEnrolledCourses from "../Pages/MyEnrolledCourses";
 import ErrorPage from "../Pages/ErrorPage";
+import FAQ from "../Pages/FAQ";
+import Courses from "../Pages/Courses";
 
 const mainRoutes = createBrowserRouter([
   {
@@ -21,6 +23,10 @@ const mainRoutes = createBrowserRouter([
       {
         index: true,
         element: <Home></Home>,
+      },
+      {
+        path: "/courses",
+        element: <Courses></Courses>,
       },
       {
         path: "/courses/:id",
@@ -73,6 +79,17 @@ const mainRoutes = createBrowserRouter([
       {
         path: "/auth/login",
         element: <Login></Login>,
+      },
+    ],
+  },
+  {
+    path: "/faq",
+    element: <MainLayout></MainLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        index: true,
+        element: <FAQ></FAQ>,
       },
     ],
   },

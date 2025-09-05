@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { div } from "framer-motion/client";
 import axios from "axios";
 import useTitle from "../hooks/UseTitle";
+import { toast } from "react-toastify";
 
 const AddCourse = () => {
   const { user } = useContext(AuthContext);
@@ -30,19 +31,10 @@ const AddCourse = () => {
     axios.post("http://localhost:5000/add-course", courseData).then((res) => {
       console.log(res.data);
       if (res.data.insertedId) {
-        Swal.fire({
-          icon: "success",
-          title: "Your course is added!",
-          showConfirmButton: false,
-          timer: 1500,
-        });
+        toast.success("Your course is added!");
         reset();
       } else {
-        Swal.fire({
-          icon: "error",
-          title: "Oops...",
-          text: "Failed to add the course!",
-        });
+        toast.error("Failed to add the course!");
       }
     });
   };
