@@ -128,29 +128,30 @@ const CourseDetails = () => {
           </p>
         </div>
 
-        {availableSeats ? (
-          <button
-            disabled={!user}
-            onClick={handleEnroll}
-            className={`btn w-full mt-6 ${
-              !user
-                ? "btn-disabled"
+        {user.email !== course.email &&
+          (availableSeats ? (
+            <button
+              disabled={!user}
+              onClick={handleEnroll}
+              className={`btn w-full mt-6 ${
+                !user
+                  ? "btn-disabled"
+                  : isEnrolled
+                  ? "bg-error hover:bg-red-700 text-white"
+                  : "bg-primary hover:bg-green-600 text-white"
+              }`}
+            >
+              {!user
+                ? "Login to Enroll"
                 : isEnrolled
-                ? "bg-error hover:bg-red-700 text-white"
-                : "bg-primary hover:bg-green-600 text-white"
-            }`}
-          >
-            {!user
-              ? "Login to Enroll"
-              : isEnrolled
-              ? "Unenroll"
-              : `Enroll (${availableSeats} seats left)`}
-          </button>
-        ) : (
-          <p className="text-center text-error font-semibold mt-10 text-xl">
-            No seats left
-          </p>
-        )}
+                ? "Unenroll"
+                : `Enroll (${availableSeats} seats left)`}
+            </button>
+          ) : (
+            <p className="text-center text-error font-semibold mt-10 text-xl">
+              No seats left
+            </p>
+          ))}
 
         {/* <button
           disabled={!user}
