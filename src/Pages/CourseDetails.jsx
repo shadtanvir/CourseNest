@@ -128,30 +128,34 @@ const CourseDetails = () => {
           </p>
         </div>
 
-        {user.email !== course.email &&
-          (availableSeats ? (
-            <button
-              disabled={!user}
-              onClick={handleEnroll}
-              className={`btn w-full mt-6 ${
-                !user
-                  ? "btn-disabled"
-                  : isEnrolled
-                  ? "bg-error hover:bg-red-700 text-white"
-                  : "bg-primary hover:bg-green-600 text-white"
-              }`}
-            >
-              {!user
-                ? "Login to Enroll"
-                : isEnrolled
-                ? "Unenroll"
-                : `Enroll (${availableSeats} seats left)`}
-            </button>
+        {user ? (
+          user.email !== course.email ? (
+            availableSeats ? (
+              <button
+                onClick={handleEnroll}
+                className={`btn w-full mt-6 ${
+                  isEnrolled
+                    ? "bg-error hover:bg-red-700 text-white"
+                    : "bg-primary hover:bg-green-600 text-white"
+                }`}
+              >
+                {isEnrolled
+                  ? "Unenroll"
+                  : `Enroll (${availableSeats} seats left)`}
+              </button>
+            ) : (
+              <p className="text-center text-error font-semibold mt-10 text-xl">
+                No seats left
+              </p>
+            )
           ) : (
-            <p className="text-center text-error font-semibold mt-10 text-xl">
-              No seats left
-            </p>
-          ))}
+            ""
+          )
+        ) : (
+          <button disabled onClick={handleEnroll} className="btn w-full mt-6">
+            Login to Enroll
+          </button>
+        )}
 
         {/* <button
           disabled={!user}
