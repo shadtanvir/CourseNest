@@ -18,7 +18,7 @@ const EditCourse = () => {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/courses/${id}`)
+      .get(`https://course-nest-server.vercel.app/courses/${id}`)
       .then((res) => setcourse(res.data));
   }, [id]);
 

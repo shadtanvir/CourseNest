@@ -10,7 +10,7 @@ const FAQ = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   useTitle("FAQ");
   useEffect(() => {
-    axios.get("http://localhost:5000/faqs").then((res) => {
+    axios.get("https://course-nest-server.vercel.app/faqs").then((res) => {
       setFaqs(res.data);
     });
   }, []);

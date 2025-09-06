@@ -8,7 +8,7 @@ const LatestCourse = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses/latest")
+      .get("https://course-nest-server.vercel.app/courses/latest")
       .then((res) => {
         setCourses(res.data);
       })

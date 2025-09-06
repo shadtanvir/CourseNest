@@ -10,7 +10,7 @@ const Courses = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses")
+      .get("https://course-nest-server.vercel.app/courses")
       .then((res) => {
         setCourses(res.data);
       })

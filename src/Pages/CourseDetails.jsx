@@ -24,7 +24,9 @@ const CourseDetails = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const courseRes = await axios.get(`http://localhost:5000/courses/${id}`);
+      const courseRes = await axios.get(
+        `https://course-nest-server.vercel.app/courses/${id}`
+      );
       setCourse(courseRes.data);
       const courseData = courseRes.data;
       setAvailableSeats(courseData.seats - courseData.totalEnrolled);
@@ -33,7 +35,7 @@ const CourseDetails = () => {
       if (user) {
         // console.log(id);
         const enrollRes = await axios.get(
-          `http://localhost:5000/courses/enrollment/${id}?email=${user.email}`,
+          `https://course-nest-server.vercel.app/courses/enrollment/${id}?email=${user.email}`,
           {
             headers: {
               Authorization: `Bearer ${user.accessToken}`,
@@ -52,7 +54,7 @@ const CourseDetails = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/courses/${id}/enroll`,
+        `https://course-nest-server.vercel.app/courses/${id}/enroll`,
         { email: user.email }
       );
       console.log(res.data);
@@ -69,7 +71,7 @@ const CourseDetails = () => {
 
         // refresh course info (seats left, totalEnrolled, etc.)
         const courseRes = await axios.get(
-          `http://localhost:5000/courses/${id}`
+          `https://course-nest-server.vercel.app/courses/${id}`
         );
         setCourse(courseRes.data);
       } else {

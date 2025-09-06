@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import { toast } from "react-toastify";
 
 const axiosInstance = axios.create({
-  baseURL: "http://localhost:5000",
+  baseURL: "https://course-nest-server.vercel.app",
 });
 const UseAxiosSecure = () => {
   const { user, logOut } = use(AuthContext);

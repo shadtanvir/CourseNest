@@ -8,7 +8,7 @@ const PopularCourses = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/courses/top-enrolled")
+      .get("https://course-nest-server.vercel.app/courses/top-enrolled")
       .then((res) => {
         setCourses(res.data);
       })

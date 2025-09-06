@@ -28,7 +28,7 @@ const AddCourse = () => {
       enrollments: [],
     };
 
-    axios.post("http://localhost:5000/add-course", courseData).then((res) => {
+    axios.post("https://course-nest-server.vercel.app/add-course", courseData).then((res) => {
       console.log(res.data);
       if (res.data.insertedId) {
         toast.success("Your course is added!");
