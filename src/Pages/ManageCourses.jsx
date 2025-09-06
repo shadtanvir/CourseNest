@@ -30,6 +30,7 @@ const ManageCourses = () => {
       const res = await axiosSecure.delete(
         `/courses/${selectedCourse._id}?email=${user.email}`
       );
+      console.log(res.data);
       if (res.data.deletedCount > 0) {
         setCourses((prev) =>
           prev.filter((course) => course._id !== selectedCourse._id)

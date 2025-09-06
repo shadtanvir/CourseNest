@@ -76,8 +76,13 @@ const CourseDetails = () => {
         toast.warning(res.data.message || "Action failed");
       }
     } catch (err) {
-      toast.error("Something went wrong");
-      console.error(err);
+      if (err.response?.status === 403) {
+        toast.error(
+          "You cannot enroll in more than 3 courses at the same time."
+        );
+      } else {
+        toast.error("Enrollment failed.");
+      }
     }
   };
 
