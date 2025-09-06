@@ -3,6 +3,7 @@ import { AuthContext } from "../Provider/AuthProvider";
 import UseAxiosSecure from "../hooks/UseAxiosSecure";
 import Swal from "sweetalert2";
 import useTitle from "../hooks/UseTitle";
+import { toast } from "react-toastify";
 
 const MyEnrolledCourses = () => {
   const { user, loading } = useContext(AuthContext);
@@ -31,17 +32,14 @@ const MyEnrolledCourses = () => {
         axiosSecure
           .delete(`/enrollments/${id}?email=${user.email}`)
           .then((res) => {
-            if (res.data.modifiedCount > 0) {
+            console.log(res.data);
+            if (res.data.success) {
               setCourses((prev) => prev.filter((c) => c._id !== id));
-              Swal.fire(
-                "Removed!",
-                "You are unenrolled from this course.",
-                "success"
-              );
+              toast.success("You are unenrolled from this course.");
             }
           })
           .catch((err) => {
-            Swal.fire("Error!", "Failed to remove enrollment.", "error");
+            toast.error("Failed to remove enrollment.");
           });
       }
     });

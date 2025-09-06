@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router";
 import { motion } from "framer-motion";
 import axios from "axios";
+import useTitle from "../hooks/UseTitle";
 
 const Courses = () => {
   const [courses, setCourses] = useState([]);
+  useTitle("Courses");
 
   useEffect(() => {
     axios
@@ -15,7 +17,7 @@ const Courses = () => {
       .catch((err) => {
         console.error("Failed to load courses", err);
       });
-  }, []);
+  }, [courses]);
 
   return (
     <section className="py-16 bg-base-100 font-poppins">

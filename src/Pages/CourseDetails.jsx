@@ -13,6 +13,7 @@ const CourseDetails = () => {
   const { id } = useParams();
   const { user } = useContext(AuthContext);
   const [course, setCourse] = useState(null);
+  const [availableSeats, setAvailableSeats] = useState(null);
   const [isEnrolled, setIsEnrolled] = useState(false);
 
   useTitle("Course Details");
@@ -25,6 +26,9 @@ const CourseDetails = () => {
     const fetchData = async () => {
       const courseRes = await axios.get(`http://localhost:5000/courses/${id}`);
       setCourse(courseRes.data);
+      const courseData = courseRes.data;
+      setAvailableSeats(courseData.seats - courseData.totalEnrolled);
+      console.log(availableSeats);
 
       if (user) {
         // console.log(id);
@@ -41,29 +45,38 @@ const CourseDetails = () => {
     };
 
     fetchData();
-  }, [id, user]);
+  }, [id, user, availableSeats]);
 
   const handleEnroll = async () => {
-    if (!user || isEnrolled) return;
+    if (!user) return;
 
     try {
       const res = await axios.post(
         `http://localhost:5000/courses/${id}/enroll`,
-        {
-          email: user.email,
-        }
+        { email: user.email }
       );
-      // console.log(res.data);
+      console.log(res.data);
 
       if (res.data.success) {
-        setIsEnrolled(true);
-        toast.success("Successfully Enrolled!");
-        setIsEnrolled(true);
+        setIsEnrolled(res.data.enrolled); // update state from backend
+        toast.success(res.data.message);
+        if (res.data.enrolled) {
+          setAvailableSeats(availableSeats - 1);
+        } else {
+          setAvailableSeats(availableSeats + 1);
+        }
+        console.log(availableSeats);
+
+        // refresh course info (seats left, totalEnrolled, etc.)
+        const courseRes = await axios.get(
+          `http://localhost:5000/courses/${id}`
+        );
+        setCourse(courseRes.data);
       } else {
-        toast.warning(res.data.message || "Already Enrolled");
+        toast.warning(res.data.message || "Action failed");
       }
     } catch (err) {
-      toast.error("Enrollment failed.");
+      toast.error("Something went wrong");
       console.error(err);
     }
   };
@@ -100,7 +113,7 @@ const CourseDetails = () => {
             <strong>Total Enrolled:</strong> {course.totalEnrolled}
           </p>
           <p>
-            <strong>Available Seats:</strong> {course.seats}
+            <strong>Available Seats:</strong> {availableSeats}
           </p>
           <p>
             <strong>Instructor:</strong> {course.name}
@@ -110,17 +123,43 @@ const CourseDetails = () => {
           </p>
         </div>
 
-        <button
-          disabled={!user || isEnrolled}
+        {availableSeats ? (
+          <button
+            disabled={!user}
+            onClick={handleEnroll}
+            className={`btn w-full mt-6 ${
+              !user
+                ? "btn-disabled"
+                : isEnrolled
+                ? "bg-error hover:bg-red-700 text-white"
+                : "bg-primary hover:bg-green-600 text-white"
+            }`}
+          >
+            {!user
+              ? "Login to Enroll"
+              : isEnrolled
+              ? "Unenroll"
+              : `Enroll (${availableSeats} seats left)`}
+          </button>
+        ) : (
+          <p className="text-center text-error font-semibold mt-10 text-xl">
+            No seats left
+          </p>
+        )}
+
+        {/* <button
+          disabled={!user}
           onClick={handleEnroll}
           className={`btn w-full mt-6 ${
-            !user || isEnrolled
+            !user
               ? "btn-disabled"
+              : isEnrolled
+              ? "bg-error hover:bg-red-700 text-white"
               : "bg-primary hover:bg-green-600 text-white"
           }`}
         >
-          {!user ? "Login to Enroll" : isEnrolled ? "Enrolled" : "Enroll"}
-        </button>
+          {!user ? "Login to Enroll" : isEnrolled ? "Unenroll" : "Enroll"}
+        </button> */}
       </div>
     </motion.div>
   );

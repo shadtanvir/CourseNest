@@ -41,7 +41,7 @@ const EditCourse = () => {
       .then((res) => {
         if (res.data.modifiedCount > 0) {
           toast.success("course updated successfully.");
-          //   navigate("/my-courses");
+          navigate("/courses-by-you");
         }
       })
       .catch((error) => {
