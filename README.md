@@ -21,7 +21,7 @@ _A modern, feature-rich platform for managing online courses, instructors, and l
 
 - **Firebase Authentication** — Email/Password and Google-based login system  
 - **Course CRUD Operations** — Instructors can add, edit, and delete courses  
-- **Enroll & Track Progress** — Students can enroll in courses and monitor progress  
+- **Enroll & Track** — Students can enroll in courses and track their enrollments  
 - **Category-based Filtering** — Filter courses by topics or difficulty levels  
 - **Dark/Light Theme** — User-preference-based UI theme toggle  
 - **Responsive Design** — Fully optimized for all devices  
