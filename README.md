@@ -1,12 +1,111 @@
-# React + Vite
+# CourseNest - Course Management Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![CourseNest Banner](https://i.postimg.cc/Z5qmYgmR/course-Nest1.png)  
+_A modern, feature-rich platform for managing online courses, instructors, and learners efficiently._
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+**CourseNest** is a full-stack **Course Management Platform** designed to simplify learning and teaching online. It allows users to **browse, enroll, and manage courses**, while instructors can **add, update, and organize** their courses seamlessly. The platform combines **intuitive design, secure authentication**, and **smooth user experience**, making it a hub for both students and educators.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Live Demo
+
+🔗 [Visit Live Site](https://course-nest-10.web.app)
+
+---
+
+## Key Features
+
+- **Firebase Authentication** — Email/Password and Google-based login system  
+- **Course CRUD Operations** — Instructors can add, edit, and delete courses  
+- **Enroll & Track Progress** — Students can enroll in courses and monitor progress  
+- **Category-based Filtering** — Filter courses by topics or difficulty levels  
+- **Dark/Light Theme** — User-preference-based UI theme toggle  
+- **Responsive Design** — Fully optimized for all devices  
+- **Modern Animations** — Enhanced UX using Framer Motion and more 
+
+---
+
+## 🧠 Tech Stack
+
+| Frontend    | Backend    | Database | Tools              |
+| ----------- | ---------- | -------- | ------------------ |
+| React.js    | Express.js | MongoDB  | Firebase Auth      |
+| TailwindCSS | Node.js    |          | JWT Authentication |
+| DaisyUI     |            |          | Framer Motion      |
+
+---
+
+## ⚙️ Installation & Setup
+
+### Clone the Repository
+
+```PowerShell
+git clone https://github.com/shadtanvir/CourseNest
+cd CourseNest
+```
+
+### Install Dependencies
+
+```PowerShell
+npm install
+```
+
+### Create .env File
+
+```
+VITE_apiKey= Firebase_apiKey  
+VITE_authDomain= Firebase_authDomain  
+VITE_projectId= Firebase_projectId  
+VITE_storageBucket= Firebase_storageBucket  
+VITE_messagingSenderId= Firebase_messagingSenderId  
+VITE_appId= Firebase_appId  
+VITE_serverUrl= https://your-server-url.vercel.app
+```
+
+### Run the Project
+
+```PowerShell
+npm run dev
+```
+
+---
+
+## Challenges Faced
+
+- Structuring role-based access (Admin, Instructor, Student).  
+- Maintaining authentication persistence and secure route protection.  
+- Designing a scalable data model for course and enrollment relationships.  
+- Ensuring responsive and visually consistent layouts across multiple views.  
+- Handling user experience for CRUD operations dynamically.
+
+---
+
+## Future Improvements
+
+- Add a **real-time discussion forum** for each course.  
+- Integrate **video conferencing** (Zoom/Google Meet API).  
+- Implement **progress tracking analytics** for instructors.  
+- Add **certification and grading system** for students.  
+- Introduce **AI-powered course recommendations** based on learner history.  
+
+---
+
+## 📜 License
+
+This project is open source and available under the MIT License.
+
+---
+
+## 🧑‍💻 Author
+
+- 👤 **Tanvir Ahmed Shad**  
+- 💼 **MERN Stack Developer | Software Engineer | Tech Enthusiast**  
+- 📧 [tahmedshad127@gmail.com](mailto:tahmedshad127@gmail.com)  
+- 🌐 [Portfolio Website](https://github.com/shadtanvir/)  
+- 🔗 [LinkedIn](https://github.com/shadtanvir/)
+
+---
